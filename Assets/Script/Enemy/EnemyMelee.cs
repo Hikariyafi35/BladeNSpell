@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class EnemyMelee : MonoBehaviour
 {
-    public float moveSpeed = 2f;
-    public Transform target;
+    float moveSpeed = 2f;
+    Transform target;
     Vector2 moveDirection;
     Rigidbody2D rb;
     public float health,maxHealth = 3f;

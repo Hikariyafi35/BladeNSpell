@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 916825389}
   - component: {fileID: 916825388}
   - component: {fileID: 916825387}
+  - component: {fileID: 916825391}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -250,7 +251,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 75ed8d33707b628408c3d4a19a7b32d0, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -363,6 +364,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &916825391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916825386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccc21cdad09141b49a377c52afd48819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  maxHealth: 3
 --- !u!1 &1481244541
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,7 +514,7 @@ GameObject:
   - component: {fileID: 1984492314}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -551,7 +566,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -646,8 +661,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a820e6272fb88da479000d41c6686f6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  animator: {fileID: 1984492314}
+  speed: 5
+  rb: {fileID: 1984492310}
 --- !u!95 &1984492314
 Animator:
   serializedVersion: 5
@@ -658,7 +673,7 @@ Animator:
   m_GameObject: {fileID: 1984492308}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c880335da09c31d4e8b08820eb8617d3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 13a4ea9beb5bc9747a09f67036f745e0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

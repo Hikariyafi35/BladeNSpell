@@ -4,29 +4,57 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    //I recommend 7 for the move speed, and 1.2 for the force damping
-    public float moveSpeed;
-    private Vector2 movement;
-    public Animator animator;
-    Rigidbody2D rb;
-    public Transform aim;
-    bool isWalking = false;
+    public float speed = 0.5f;
+    public Rigidbody2D rb;
+    private Vector2 input;
+    Animator anim;
+    private Vector2 lastMoveDirection;
+    private bool facingLeft = true;
 
     void Start() {
-        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
-    void Update() {
-        movement.x = Input.GetAxis("Horizontal");
-        movement.y = Input.GetAxis("Vertical");
+    void Update(){
+        ProcessInput();
+        Animate();
+        if(input.x < 0 && !facingLeft || input.x > 0 && facingLeft){
+        Flip();
+    }
 
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Speed", movement.sqrMagnitude);
     }
-    private void FixedUpdate() {
-        rb.MovePosition(rb.position + movement * moveSpeed *Time.deltaTime);
-        if(isWalking){
-            Vector3 vector3 = Vector3.left * movement.x + Vector3.down * movement.y;
-            aim.rotation = Quaternion.LookRotation(Vector3.forward, vector3);
+    private void FixedUpdate(){
+        rb.velocity = input*speed;
+    }
+    void ProcessInput(){
+        float moveX  = Input.GetAxisRaw("Horizontal");
+        float moveY  = Input.GetAxisRaw("Vertical");
+        if((moveX ==0 && moveY ==0) && (input.x != 0 || input.y != 0)){
+            lastMoveDirection = input;
         }
+        input.x = Input.GetAxisRaw("Horizontal");
+        input.y = Input.GetAxisRaw("Vertical");
+        
+        input.Normalize();
     }
+    void Animate(){
+        anim.SetFloat("MoveX", input.x);
+        anim.SetFloat("MoveY", input.y);
+        anim.SetFloat("MoveMagnitude",input.magnitude);
+        anim.SetFloat("LastMoveX",lastMoveDirection.x);
+        anim.SetFloat("LastMoveY",lastMoveDirection.y);
+    }
+    void Flip() {
+    Vector3 scale = transform.localScale;
+    
+    if (input.x > 0) {  // Menghadap kanan
+        scale.x = -Mathf.Abs(scale.x);  // Pastikan skala positif (menghadap kanan)
+        facingLeft = false;  // Sekarang sprite menghadap kanan
+    } 
+    else if (input.x < 0) {  // Menghadap kiri
+        scale.x = Mathf.Abs(scale.x);  // Pastikan skala negatif (menghadap kiri)
+        facingLeft = true;  // Sekarang sprite menghadap kiri
+    }
+
+    transform.localScale = scale;
+}
 }
