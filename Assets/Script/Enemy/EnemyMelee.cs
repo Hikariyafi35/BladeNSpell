@@ -37,8 +37,9 @@ public class EnemyMelee : MonoBehaviour
             rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
         }
     }
-    public void TakeDamage(){
-        //health -= damage;
+    public void TakeDamage(float damage){
+        Debug.Log("take damage");
+        health -= damage;
         if(health <= 0){
             Destroy(gameObject);
         }
