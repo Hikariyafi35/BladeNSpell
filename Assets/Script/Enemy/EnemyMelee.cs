@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyMelee : MonoBehaviour
 {
-    float moveSpeed = 2f;
+    public float moveSpeed = 2f;
     Transform target;
     Vector2 moveDirection;
     Rigidbody2D rb;
