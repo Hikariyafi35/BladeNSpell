@@ -9,12 +9,15 @@ public class EnemyMelee : MonoBehaviour
     Transform target;
     Vector2 moveDirection;
     Rigidbody2D rb;
-    public float health,maxHealth = 3f;
+    public float health, maxHealth = 3f;
+    private bool facingLeft = true; // Untuk mengecek apakah musuh sedang menghadap kiri
+    public int damageCaused;
 
     // Start is called before the first frame update
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
     }
+
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -28,17 +31,38 @@ public class EnemyMelee : MonoBehaviour
             Vector3 direction = (target.position - transform.position).normalized;
             moveDirection = direction;
 
-            // float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            // rb.rotation = angle;
+            // Mengecek apakah musuh perlu di-flip berdasarkan arah pergerakan
+            FlipSprite();
         }
     }
+
     private void FixedUpdate() {
         if(target){
             rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
         }
     }
-    public void TakeDamage(){
-        //health -= damage;
+
+    // Fungsi untuk flip sprite berdasarkan arah gerakan
+    void FlipSprite() {
+        if (moveDirection.x > 0 && facingLeft) {
+            // Jika bergerak ke kanan dan musuh menghadap kiri, flip ke kanan
+            Flip();
+        } else if (moveDirection.x < 0 && !facingLeft) {
+            // Jika bergerak ke kiri dan musuh menghadap kanan, flip ke kiri
+            Flip();
+        }
+    }
+
+    // Fungsi untuk mengubah skala sumbu X untuk flip sprite
+    void Flip() {
+        Vector3 scale = transform.localScale;
+        scale.x *= -1; // Membalikkan skala sumbu X
+        transform.localScale = scale;
+        facingLeft = !facingLeft; // Membalikkan status apakah menghadap kiri atau tidak
+    }
+
+    public void TakeDamage(float damage){
+        health -= damage;
         if(health <= 0){
             Destroy(gameObject);
         }
