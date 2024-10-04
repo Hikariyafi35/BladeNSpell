@@ -12,9 +12,11 @@ public class EnemyMelee : MonoBehaviour
     public float health, maxHealth = 3f;
     private bool facingLeft = true; // Untuk mengecek apakah musuh sedang menghadap kiri
     public int damageCaused;
+    private Animator animator;
 
     // Start is called before the first frame update
     private void Awake() {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -63,6 +65,7 @@ public class EnemyMelee : MonoBehaviour
 
     public void TakeDamage(float damage){
         health -= damage;
+        animator.SetTrigger("Hurt");
         if(health <= 0){
             Destroy(gameObject);
         }
