@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2089839112281883161}
   - component: {fileID: 3660746680855544963}
   - component: {fileID: 7800313624778397490}
+  - component: {fileID: -9196553180505530690}
   m_Layer: 0
   m_Name: Enemy 1
   m_TagString: Enemy
@@ -166,6 +167,7 @@ MonoBehaviour:
   health: 1
   maxHealth: 3
   damageCaused: 1
+  knockBackForce: 10
 --- !u!95 &7800313624778397490
 Animator:
   serializedVersion: 5
@@ -187,3 +189,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-9196553180505530690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4096206775887584990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08114689cf420c14ba640a076b1e3ce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropForce: 0
+  droppedItemPrefab: {fileID: 3279862217657116274, guid: 8d4dd5fa097aa2043a05b6f89290791f, type: 3}
+  lootList:
+  - {fileID: 11400000, guid: 7c05eba2483fb7140a7c38e7644c1cc5, type: 2}
+  - {fileID: 11400000, guid: ea4b8c2acead9c643ab6b58261190302, type: 2}
+  - {fileID: 11400000, guid: 7870c3762f08ebd4b8e734612f610c5a, type: 2}

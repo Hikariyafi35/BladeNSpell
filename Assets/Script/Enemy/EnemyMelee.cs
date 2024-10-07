@@ -67,7 +67,22 @@ public class EnemyMelee : MonoBehaviour
         health -= damage;
         animator.SetTrigger("Hurt");
         if(health <= 0){
-            Destroy(gameObject);
+            Die();
         }
+    }
+    public void Die(){
+        
+        animator.SetTrigger("Death");
+        rb.velocity = Vector2.zero;
+        moveSpeed = 0;
+        GetComponent<Collider2D>().enabled = false;
+
+        StartCoroutine(DestroyAfterAnimation());
+    }
+    IEnumerator DestroyAfterAnimation(){
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+
+        GetComponent<LootBag>().InstantiateLoot(transform.position);
+        Destroy(gameObject);
     }
 }
