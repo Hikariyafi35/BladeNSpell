@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private float spawnRate = 1f;
     [SerializeField] private GameObject[] enemyPrefabs;
-    [SerializeField] private bool canSpawn = true;
+    //[SerializeField] private bool canSpawn = true;
     // Start is called before the first frame update
     void Start()
     {

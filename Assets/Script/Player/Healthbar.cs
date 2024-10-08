@@ -6,8 +6,7 @@ using UnityEngine.UI;
 
 public class Healthbar : MonoBehaviour
 {
-    public int maxHealth = 100;
-    private int currentHealth;
+    public Character character;
     public Image healthBar;
     public float damageInterval = 1f; // Interval waktu untuk pengurangan health
     private float lastDamageTime; // Waktu saat terakhir health berkurang
@@ -15,7 +14,7 @@ public class Healthbar : MonoBehaviour
     void Start()
     {
         // Set initial health
-        currentHealth = maxHealth;
+
         UpdateHealthBar();
     }
 
@@ -60,23 +59,23 @@ public class Healthbar : MonoBehaviour
     // Function to handle damage
     void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        character.currentHealth -= damage;
 
         // Prevent health from going below 0
-        if (currentHealth <= 0)
+        if (character.currentHealth <= 0)
         {
-            currentHealth = 0;
+            character.currentHealth = 0;
             Die();  // Call death function if health reaches 0
         }
 
         UpdateHealthBar();
-        Debug.Log("Current Health: " + currentHealth);
+        Debug.Log("Current Health: " + character.currentHealth);
     }
 
     // Function to update the health bar
     void UpdateHealthBar()
     {
-        float fillAmount = (float)currentHealth / maxHealth;
+        float fillAmount = (float)character.currentHealth / character.maxHealth;
         healthBar.fillAmount = fillAmount;
     }
 

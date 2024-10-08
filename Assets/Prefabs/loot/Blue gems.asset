@@ -15,3 +15,4 @@ MonoBehaviour:
   lootSprite: {fileID: -1058848224, guid: f45a3bd8e482da04d91d32a6a0207ff0, type: 3}
   lootName: Blue gems
   dropChance: 20
+  expAmount: 20
