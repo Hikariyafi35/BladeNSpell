@@ -13,6 +13,7 @@ public class EnemyMelee : MonoBehaviour
     private bool facingLeft = true; // Untuk mengecek apakah musuh sedang menghadap kiri
     public int damageCaused;
     private Animator animator;
+    
 
     // Start is called before the first frame update
     private void Awake() {

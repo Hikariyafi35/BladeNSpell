@@ -11,11 +11,10 @@ public class Loot : ScriptableObject
     public int dropChance;
     public int expAmount;
     
-    public Loot(String lootName, int dropChance, int expAmount)
+    
+    public Loot(String lootName, int dropChance)
     {
         this.lootName = lootName;
         this.dropChance = dropChance;
-        this.expAmount = expAmount;
-
     }
 }

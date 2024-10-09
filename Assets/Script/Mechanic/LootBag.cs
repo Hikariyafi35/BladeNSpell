@@ -33,6 +33,10 @@ public class LootBag : MonoBehaviour
 
             // Vector2 dropDirection = new Vector2(Random.Range(-1f,1f),Random.Range(-1f,1f));
             // lootGameObject.GetComponent<Rigidbody2D>().AddForce(dropDirection*dropForce, ForceMode2D.Impulse);
+            CollectGems collectGems = lootGameObject.GetComponent<CollectGems>();
+            if(collectGems != null){
+                collectGems.gemLoot = droppedItem;
+            }
         }
     }
 }
