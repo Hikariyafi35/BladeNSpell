@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponMelee : MonoBehaviour
@@ -8,8 +6,16 @@ public class WeaponMelee : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) {
         EnemyMelee enemyMelee = collision.GetComponent<EnemyMelee>();
+        EnemyRange enemyRange= collision.GetComponent<EnemyRange>();
+        EnemyGolem enemyGolem = collision.GetComponent<EnemyGolem>();
         if(enemyMelee != null) {
             enemyMelee.TakeDamage(damage);
+        }
+        if(enemyRange != null) {
+            enemyRange.TakeDamage(damage);
+        }
+        if (enemyGolem != null) {
+            enemyGolem.TakeDamage(damage);
         }
     }
 }

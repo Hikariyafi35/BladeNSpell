@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +12,7 @@ public class Healthbar : MonoBehaviour
     void Start()
     {
         // Set initial health
-
+        character.currentHealth = character.maxHealth;
         UpdateHealthBar();
     }
 
@@ -25,12 +23,16 @@ public class Healthbar : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             // Ambil komponen EnemyMelee dari musuh yang bertabrakan
-            EnemyMelee enemy = collision.gameObject.GetComponent<EnemyMelee>();
-            
-            if (enemy != null)
+            EnemyMelee enemyMelee = collision.gameObject.GetComponent<EnemyMelee>();
+            EnemyRange enemyRange = collision.gameObject.GetComponent<EnemyRange>();
+            if (enemyMelee != null)
             {
-                TakeDamage(enemy.damageCaused);  // Gunakan damageCaused dari musuh
+                TakeDamage(enemyMelee.damageCaused);  // Gunakan damageCaused dari musuh
                 lastDamageTime = Time.time; // Catat waktu ketika pertama kali terkena damage
+            }
+            if(enemyRange != null){
+                TakeDamage(enemyRange.damageCaused);
+                lastDamageTime = Time.time;
             }
         }
     }
@@ -45,19 +47,24 @@ public class Healthbar : MonoBehaviour
             if (Time.time - lastDamageTime >= damageInterval)
             {
                 // Ambil komponen EnemyMelee dari musuh yang bertabrakan
-                EnemyMelee enemy = collision.gameObject.GetComponent<EnemyMelee>();
-                
-                if (enemy != null)
+                EnemyMelee enemyMelee = collision.gameObject.GetComponent<EnemyMelee>();
+                EnemyRange enemyRange = collision.gameObject.GetComponent<EnemyRange>();
+                if (enemyMelee != null)
                 {
-                    TakeDamage(enemy.damageCaused);  // Gunakan damageCaused dari musuh
+                    TakeDamage(enemyMelee.damageCaused);  // Gunakan damageCaused dari musuh
                     lastDamageTime = Time.time; // Reset waktu terakhir terkena damage
+                }
+                if(enemyRange != null) 
+                {
+                    TakeDamage(enemyRange.damageCaused);
+                    lastDamageTime = Time.time;
                 }
             }
         }
     }
 
     // Function to handle damage
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         character.currentHealth -= damage;
 

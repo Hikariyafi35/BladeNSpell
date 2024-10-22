@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,11 +7,11 @@ public class Character : MonoBehaviour
     [SerializeField] public int currentHealth, maxHealth, currentExp, maxExp;
     [SerializeField] private Image expBar;
     [SerializeField] public int currentWave = 1;
-    [SerializeField] private  TMP_Text waveText;
+    [SerializeField] private TMP_Text waveText;
+    [SerializeField] private GamaManager gamaManager; // Referensi ke GameManager
 
     void Start()
     {
-        currentHealth = maxHealth;
         currentExp = 0; // Mulai dari 0 EXP
         UpdateWaveText();
     }
@@ -40,11 +38,17 @@ public class Character : MonoBehaviour
     {
         currentExp = 0; // Contoh sederhana, reset EXP
         maxExp += 100;   // Tingkatkan batas maxExp, bisa disesuaikan
-        // Tambahkan logika lain untuk level up jika perlu
         currentWave += 1;
         Debug.Log("Wave " + currentWave + " telah dimulai!");
         UpdateWaveText();
+
+        // Cek jika wave adalah kelipatan 10, summon golem
+        if (currentWave % 2 == 0)
+        {
+            gamaManager.SummonGolem();
+        }
     }
+
     void UpdateWaveText(){
         waveText.text = currentWave.ToString();
     }
