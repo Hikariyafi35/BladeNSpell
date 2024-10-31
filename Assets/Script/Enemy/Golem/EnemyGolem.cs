@@ -101,7 +101,7 @@ public class EnemyGolem : MonoBehaviour
         }
     }
 
-    // Fungsi untuk serangan radial seperti Gorb
+    // radial attack
     void ShootRadialAttack() {
         if (Time.time > nextFireTime) {
             float angleStep = 360f / bulletCount; // Sudut antara setiap peluru
@@ -128,11 +128,11 @@ public class EnemyGolem : MonoBehaviour
 
     // Masuk ke Fase 2 ketika HP rendah
     void EnterPhaseTwo() {
-        // Ubah atribut serangan untuk fase 2
+        //  atribut serangan untuk fase 2
         fireRate = lowHealthFireRate;
         bulletCount = lowHealthBulletCount;
         shootingRange = lowHealthShootingRange;
-        isPhaseTwo = true; // Tandai bahwa golem sekarang berada di fase 2
+        isPhaseTwo = true; //golem sekarang berada di fase 2
         spriteRenderer.color = new Color(0f, 0.925f, 0.910f);
         Debug.Log("Golem has entered phase 2: Faster fire rate, more bullets, shorter shooting range, and continuous chasing");
     }

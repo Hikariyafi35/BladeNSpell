@@ -27,7 +27,7 @@ public class Character : MonoBehaviour
     {
         currentExp += amount;
 
-        // Jika EXP mencapai max, level up atau reset sesuai logika game
+        // Jika EXP mencapai max, level up atau reset 
         if (currentExp >= maxExp)
         {
             LevelUp();
@@ -36,13 +36,14 @@ public class Character : MonoBehaviour
 
     void LevelUp()
     {
-        currentExp = 0; // Contoh sederhana, reset EXP
-        maxExp += 100;   // Tingkatkan batas maxExp, bisa disesuaikan
+        maxHealth +=10;
+        currentExp = 0; //  reset EXP
+        maxExp += 100;   // Tingkatkan batas maxExp
         currentWave += 1;
         Debug.Log("Wave " + currentWave + " telah dimulai!");
         UpdateWaveText();
 
-        // Cek jika wave adalah kelipatan 10, summon golem
+        // Cek  wave adalah kelipatan summon golem
         if (currentWave % 2 == 0)
         {
             gamaManager.SummonGolem();

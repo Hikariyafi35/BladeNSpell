@@ -78,6 +78,13 @@ public class Healthbar : MonoBehaviour
         UpdateHealthBar();
         Debug.Log("Current Health: " + character.currentHealth);
     }
+    public void AddHealth(int healthAmount){
+        character.currentHealth += healthAmount;
+        if (character.currentHealth > character.maxHealth){
+            character.currentHealth = character.maxHealth;
+        }
+        UpdateHealthBar();
+    }
 
     // Function to update the health bar
     void UpdateHealthBar()
@@ -86,6 +93,7 @@ public class Healthbar : MonoBehaviour
         healthBar.fillAmount = fillAmount;
     }
 
+    
     // Function called when health reaches 0
     void Die()
     {

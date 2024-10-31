@@ -8,6 +8,7 @@ public class Loot : ScriptableObject
     public string lootName;
     public int dropChance;
     public int expAmount;
+    public int healthAmount;
     
     
     public Loot(String lootName, int dropChance)

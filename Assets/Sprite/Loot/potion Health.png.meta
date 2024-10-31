@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bda4812e4534f7345b17a2cb05a19734
+guid: fe8a5285aa292044ca4d00fce2fa55bf
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 12
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_coin_strip4_0
+      name: potion Health_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 16
+        x: 3
+        y: 1
+        width: 10
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8c7c73d0b3655940a608dd70354deff
-      internalID: -557512814
+      spriteID: 6723a87d8f85f0a45bed42665b94df9b
+      internalID: 978932106
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_coin_strip4_1
+      name: potion Health_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
+        x: 19
+        y: 1
+        width: 10
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3650f36530f21b4ca3f74fe7aee2cc7
-      internalID: -1021556873
+      spriteID: 6a17135201617e14ab871d48198ce794
+      internalID: -45275971
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_coin_strip4_2
+      name: potion Health_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
+        x: 35
+        y: 1
+        width: 10
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e60a795ac655b23469c1de380d58ef8a
-      internalID: 960904196
+      spriteID: b1db2936cd53079418a84f6d93f15e26
+      internalID: 2017453271
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_coin_strip4_3
+      name: potion Health_3
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
+        x: 51
+        y: 1
+        width: 10
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 254b8096fb703b240bdda51f301dae59
-      internalID: 723023534
+      spriteID: cacfe4210895fcc41b7a41b30b54ed86
+      internalID: 1782629801
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      spr_coin_strip4_0: -557512814
-      spr_coin_strip4_1: -1021556873
-      spr_coin_strip4_2: 960904196
-      spr_coin_strip4_3: 723023534
+      potion Health_0: 978932106
+      potion Health_1: -45275971
+      potion Health_2: 2017453271
+      potion Health_3: 1782629801
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bda4812e4534f7345b17a2cb05a19734
+guid: 45caa1565162ef44386b210ad405f4c3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_coin_strip4_0
+      name: Slime-Hurt_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8c7c73d0b3655940a608dd70354deff
-      internalID: -557512814
+      spriteID: d360c504ceba8d44198c85a90c9737e8
+      internalID: -48846176
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_coin_strip4_1
+      name: Slime-Hurt_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 100
         y: 0
-        width: 16
-        height: 16
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3650f36530f21b4ca3f74fe7aee2cc7
-      internalID: -1021556873
+      spriteID: 5c8ac2bc265df9a48b978947130ec2d4
+      internalID: 1423173890
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_coin_strip4_2
+      name: Slime-Hurt_2
       rect:
         serializedVersion: 2
-        x: 32
+        x: 200
         y: 0
-        width: 16
-        height: 16
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e60a795ac655b23469c1de380d58ef8a
-      internalID: 960904196
+      spriteID: bea137bd71f412b438fc93229e708726
+      internalID: 772296630
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_coin_strip4_3
+      name: Slime-Hurt_3
       rect:
         serializedVersion: 2
-        x: 48
+        x: 300
         y: 0
-        width: 16
-        height: 16
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 254b8096fb703b240bdda51f301dae59
-      internalID: 723023534
+      spriteID: d6c007c4fd9b9794a86d1c9fcb024a55
+      internalID: -1055985672
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      spr_coin_strip4_0: -557512814
-      spr_coin_strip4_1: -1021556873
-      spr_coin_strip4_2: 960904196
-      spr_coin_strip4_3: 723023534
+      Slime-Hurt_0: -48846176
+      Slime-Hurt_1: 1423173890
+      Slime-Hurt_2: 772296630
+      Slime-Hurt_3: -1055985672
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class GamaManager : MonoBehaviour
 {
-    public Transform player;  // Reference ke transform player
+    public Transform player;  // Referensi ke transform player
     public float moveSpeed = 5f;  // Kecepatan gerak GameObject yang mengikuti
-    public float followDistance = 0.5f;  // Jarak minimum yang akan diikuti
+    public float followHeightOffset = 2f;  // Offset tinggi dari player agar selalu berada di atasnya
     public GameObject golemPrefab;  // Prefab untuk golem yang akan di-summon
-    public GameObject expBarCanvas; // Reference ke canvas EXP Bar
-    public GameObject golemHealthBarCanvas; // Reference ke canvas HP Bar Golem
+    public GameObject expBarCanvas; // Referensi ke canvas EXP Bar
+    public GameObject golemHealthBarCanvas; // Referensi ke canvas HP Bar Golem
     public Image healthBar;  // Referensi untuk Health Bar UI
 
     private GameObject currentGolem; // Referensi ke golem yang disummon
@@ -18,18 +18,11 @@ public class GamaManager : MonoBehaviour
 
     void Update()
     {
-        // Menghitung jarak antara GameObject dan player
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        // Tentukan posisi target dengan offset di atas player
+        Vector3 targetPosition = new Vector3(player.position.x, player.position.y + followHeightOffset, player.position.z);
 
-        // Jika jarak lebih besar dari followDistance, maka GameObject akan mengikuti player
-        if (distanceToPlayer > followDistance)
-        {
-            // Dapatkan arah dari GameObject ke player
-            Vector2 direction = (player.position - transform.position).normalized;
-
-            // Pindahkan GameObject ke arah player dengan kecepatan tertentu
-            transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
-        }
+        // Pindahkan GameManager ke posisi target secara bertahap dengan kecepatan tertentu
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
         // Update health bar golem jika ada golem yang disummon
         if (currentGolem != null && currentGolemScript != null)
@@ -38,12 +31,12 @@ public class GamaManager : MonoBehaviour
         }
     }
 
-    // Fungsi untuk mensummon golem di posisi GamaManager
+    // Fungsi untuk mensummon golem di posisi GameManager
     public void SummonGolem()
     {
         if (currentGolem == null) // Cek jika golem belum ada
         {
-            currentGolem = Instantiate(golemPrefab, transform.position, Quaternion.identity); // Spawn golem di posisi GamaManager
+            currentGolem = Instantiate(golemPrefab, transform.position, Quaternion.identity); // Spawn golem di posisi GameManager
             currentGolemScript = currentGolem.GetComponent<EnemyGolem>(); // Simpan referensi ke script EnemyGolem
             Debug.Log("Golem summoned at position: " + transform.position);
 

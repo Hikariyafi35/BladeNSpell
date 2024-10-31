@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bda4812e4534f7345b17a2cb05a19734
+guid: 91028a1b12bd2524bbf9bd25e4860aeb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 5
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_coin_strip4_0
+      name: Slime-bullet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 36
+        y: 41
         width: 16
-        height: 16
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8c7c73d0b3655940a608dd70354deff
-      internalID: -557512814
+      spriteID: e1ace45c460cea4498c4b696f2eef402
+      internalID: -458785544
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_coin_strip4_1
+      name: Slime-bullet_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
+        x: 81
+        y: 40
         width: 16
-        height: 16
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3650f36530f21b4ca3f74fe7aee2cc7
-      internalID: -1021556873
+      spriteID: f5c9324e73e5e21499ce429a67f09db5
+      internalID: -1003249185
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_coin_strip4_2
+      name: Slime-bullet_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 122
+        y: 42
         width: 16
-        height: 16
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e60a795ac655b23469c1de380d58ef8a
-      internalID: 960904196
+      spriteID: 0047fc0f035e47e46bb242cebd1b9b1f
+      internalID: 1380142805
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_coin_strip4_3
+      name: Slime-bullet_3
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
+        x: 168
+        y: 44
+        width: 10
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +187,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 254b8096fb703b240bdda51f301dae59
-      internalID: 723023534
+      spriteID: a51007a616ccef245a9f96f6719953f3
+      internalID: 25209053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime-bullet_4
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 45
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ea455637821387478e251f996b0013d
+      internalID: -1214443645
       vertices: []
       indices: 
       edges: []
@@ -204,10 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      spr_coin_strip4_0: -557512814
-      spr_coin_strip4_1: -1021556873
-      spr_coin_strip4_2: 960904196
-      spr_coin_strip4_3: 723023534
+      Slime-bullet_0: -458785544
+      Slime-bullet_1: -1003249185
+      Slime-bullet_2: 1380142805
+      Slime-bullet_3: 25209053
+      Slime-bullet_4: -1214443645
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

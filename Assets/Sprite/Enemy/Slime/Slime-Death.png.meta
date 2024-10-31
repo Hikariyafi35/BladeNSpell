@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bda4812e4534f7345b17a2cb05a19734
+guid: 8163caa9d8802f1408bd76c3e0934d87
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_coin_strip4_0
+      name: Slime-Death_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8c7c73d0b3655940a608dd70354deff
-      internalID: -557512814
+      spriteID: baad679b58bffaf4a912efab3c34b1d9
+      internalID: 2078517019
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_coin_strip4_1
+      name: Slime-Death_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 100
         y: 0
-        width: 16
-        height: 16
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3650f36530f21b4ca3f74fe7aee2cc7
-      internalID: -1021556873
+      spriteID: 558e6d35cd1b12743ba02edf1bb93355
+      internalID: -1839541917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_coin_strip4_2
+      name: Slime-Death_2
       rect:
         serializedVersion: 2
-        x: 32
+        x: 200
         y: 0
-        width: 16
-        height: 16
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e60a795ac655b23469c1de380d58ef8a
-      internalID: 960904196
+      spriteID: 3c0295dece59d5d408137e6e255c515d
+      internalID: -58099951
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_coin_strip4_3
+      name: Slime-Death_3
       rect:
         serializedVersion: 2
-        x: 48
+        x: 300
         y: 0
-        width: 16
-        height: 16
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 254b8096fb703b240bdda51f301dae59
-      internalID: 723023534
+      spriteID: 0c314e037df1b2b43bfcd10846e0b244
+      internalID: -1430887332
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      spr_coin_strip4_0: -557512814
-      spr_coin_strip4_1: -1021556873
-      spr_coin_strip4_2: 960904196
-      spr_coin_strip4_3: 723023534
+      Slime-Death_0: 2078517019
+      Slime-Death_1: -1839541917
+      Slime-Death_2: -58099951
+      Slime-Death_3: -1430887332
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
