@@ -249,7 +249,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.79, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: -5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2693503490754221636}
@@ -302,8 +302,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1563681001
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1863001400, guid: d4b1ddd3af4549d438172c0bf3e4c212, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -427,25 +427,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeccbddb9752b8b459b4a51b57f8302a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.5
+  moveSpeed: 2
   health: 10
   maxHealth: 10
   damageCaused: 1
-  shootingRange: 1.3
+  shootingRange: 5.91
   bullet: {fileID: 300432704228753690, guid: 29df7d4e0c41e7644b3301006c7c2d16, type: 3}
   bulletParent: {fileID: 2693503490754221636}
-  fireRate: 4
+  fireRate: 2
   bulletCount: 8
-  healthBar: {fileID: 0}
-  golemHealthBarCanvas: {fileID: 0}
-  expBarCanvas: {fileID: 0}
   lowHealthFireRate: 1
   lowHealthBulletCount: 20
   lowHealthShootingRange: 0.5
   boundaryCirclePrefab: {fileID: 7537534977849991706, guid: 9e7b826168b5ad445a004876f5b76f4f, type: 3}
-  boundaryRadius: 3
-  radiusTriggerWall: 1.61
-  numberOfWalls: 60
+  boundaryRadius: 15
+  radiusTriggerWall: 8.14
+  numberOfWalls: 110
 --- !u!1 &8037557265359255577
 GameObject:
   m_ObjectHideFlags: 0

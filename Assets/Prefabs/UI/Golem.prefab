@@ -209,8 +209,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1563681001
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1863001400, guid: d4b1ddd3af4549d438172c0bf3e4c212, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -345,9 +345,6 @@ MonoBehaviour:
   bulletParent: {fileID: 4685370277944172386}
   fireRate: 4
   bulletCount: 8
-  healthBar: {fileID: 0}
-  golemHealthBarCanvas: {fileID: 0}
-  expBarCanvas: {fileID: 0}
   lowHealthFireRate: 1
   lowHealthBulletCount: 20
   lowHealthShootingRange: 0.5

@@ -63,7 +63,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.2226952, y: -0.29885405, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: -5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4633257244761339522}
@@ -107,8 +107,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1563681001
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1709211257, guid: adcbb58295578d142a340a3cf71887ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -239,7 +239,7 @@ MonoBehaviour:
   health: 1
   maxHealth: 1
   damageCaused: 1
-  shootingRange: 1.13
+  shootingRange: 5.66
   bullet: {fileID: 300432704228753690, guid: c28d0a1b71af3b047830c7154710e0d7, type: 3}
   bulletParent: {fileID: 901241324233018395}
   fireRate: 1
