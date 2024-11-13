@@ -17,6 +17,7 @@ public class Attack : MonoBehaviour
         }
     }
     void onAttack(){
+        AudioManager.Instance.PlaySFX("sword swing");
         melee.SetActive(true);
         IsAttacking = true;
     }

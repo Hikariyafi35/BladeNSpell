@@ -10,21 +10,33 @@ public class Movement : MonoBehaviour
     private bool facingLeft = true;
     public Transform aim;
     public bool isWalking = false;
+    public bool isDead = false; 
+    public bool isGameOver = false;
 
     void Start() {
         anim = GetComponent<Animator>();
     }
     void Update(){
-        ProcessInput();
+        if (isDead || isGameOver) {
+            input = Vector2.zero; // Set input ke nol jika karakter mati atau game over
+        } else {
+            ProcessInput();
+        }
         Animate();
-        if(input.x < 0 && !facingLeft || input.x > 0 && facingLeft){
+
+        if (input.x < 0 && !facingLeft || input.x > 0 && facingLeft){
             Flip();
         }
     }
 
     private void FixedUpdate(){
-        rb.velocity = input * speed;
-        if(isWalking){
+        if (!isDead && !isGameOver) { // Cek kondisi sebelum menggerakkan karakter
+            rb.velocity = input * speed;
+        } else {
+            rb.velocity = Vector2.zero; // Set ke nol agar karakter benar-benar berhenti
+        }
+
+        if(isWalking && !isDead && !isGameOver) {
             Vector2 direction = new Vector2(input.x, input.y);
             UpdateAimDirection(direction);
         }
@@ -71,15 +83,24 @@ public class Movement : MonoBehaviour
     }
 
     void UpdateAimDirection(Vector2 direction) {
-    if (direction != Vector2.zero) {
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;  // Hitung sudut dari input arah
-        
-        if (facingLeft) {
-            // Jika menghadap kiri, kita perlu membalikkan rotasi aim
-            angle += 180;  // Tambah 180 derajat saat menghadap kiri
-        }
+        if (direction != Vector2.zero) {
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        aim.rotation = Quaternion.Euler(new Vector3(0, 0, angle));  // Rotasi pada sumbu Z saja untuk 2D
+            if (facingLeft) {
+                angle += 180;
+            }
+
+            aim.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        }
     }
-}
+
+    // Fungsi untuk mengaktifkan kondisi mati
+    public void SetDead(bool value) {
+        isDead = value;
+    }
+
+    // Fungsi untuk mengaktifkan kondisi game over
+    public void SetGameOver(bool value) {
+        isGameOver = value;
+    }
 }

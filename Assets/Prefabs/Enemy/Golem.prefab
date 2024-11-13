@@ -428,8 +428,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  health: 10
-  maxHealth: 10
+  health: 20
+  maxHealth: 20
   damageCaused: 1
   shootingRange: 5.91
   bullet: {fileID: 300432704228753690, guid: 29df7d4e0c41e7644b3301006c7c2d16, type: 3}

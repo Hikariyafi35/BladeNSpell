@@ -6,6 +6,7 @@ public class Healthbar : MonoBehaviour
 {
     public Character character;
     public Image healthBar;
+    public Canvas gameOverCanvas;
     public float damageInterval = 1f; // Interval waktu untuk pengurangan health
     private float lastDamageTime; // Waktu saat terakhir health berkurang
 
@@ -14,6 +15,9 @@ public class Healthbar : MonoBehaviour
         // Set initial health
         character.currentHealth = character.maxHealth;
         UpdateHealthBar();
+        if(gameOverCanvas != null){
+            gameOverCanvas.gameObject.SetActive(false);
+        }
     }
 
     // Function called when a collision occurs
@@ -96,8 +100,19 @@ public class Healthbar : MonoBehaviour
     
     // Function called when health reaches 0
     void Die()
+{
+    Debug.Log("Player Died");
+    AudioManager.Instance.musicSource.Stop();
+    if (gameOverCanvas != null)
     {
-        Debug.Log("Player Died");
-        // Handle player death here (e.g., restart level, show game over screen)
+        gameOverCanvas.gameObject.SetActive(true);
     }
+
+    // Mengambil komponen Movement dan set kondisi mati
+    Movement movement = GetComponent<Movement>();
+    if (movement != null)
+    {
+        movement.SetDead(true); // Set isDead menjadi true
+    }
+}
 }

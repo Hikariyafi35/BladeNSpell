@@ -26,11 +26,11 @@ public class Character : MonoBehaviour
     public void AddExperience(int amount)
     {
         currentExp += amount;
-
         // Jika EXP mencapai max, level up atau reset 
         if (currentExp >= maxExp)
         {
             LevelUp();
+            AudioManager.Instance.PlaySFX("lvl up");
         }
     }
 
