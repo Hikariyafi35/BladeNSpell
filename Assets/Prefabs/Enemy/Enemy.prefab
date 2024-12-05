@@ -167,6 +167,7 @@ MonoBehaviour:
   health: 1
   maxHealth: 1
   damageCaused: 1
+  score: 50
 --- !u!95 &7800313624778397490
 Animator:
   serializedVersion: 5

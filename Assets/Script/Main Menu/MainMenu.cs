@@ -37,7 +37,14 @@ public class MainMenu : MonoBehaviour
     public void Continue(string win){
         SceneManager.LoadScene(win);
     }
-
+    public void LeaderBoard(string LeaderBoard)
+    {
+        ScoreManager.Instance.SaveCurrentScore();
+        
+        
+        SceneManager.LoadScene(LeaderBoard);
+        
+    }
     
     // public void Pouse()
     // {

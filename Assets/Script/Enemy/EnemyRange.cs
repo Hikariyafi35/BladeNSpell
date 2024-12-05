@@ -10,6 +10,7 @@ public class EnemyRange : MonoBehaviour
     public float health, maxHealth = 3f;
     private bool facingLeft = true; // Untuk mengecek apakah musuh sedang menghadap kiri
     public int damageCaused;
+    public int score;
     private Animator animator;
     public float shootingRange;
     public GameObject bullet;
@@ -94,6 +95,7 @@ public class EnemyRange : MonoBehaviour
         rb.velocity = Vector2.zero;
         moveSpeed = 0;
         GetComponent<Collider2D>().enabled = false;
+        ScoreManager.Instance.AddScore(score);
 
         StartCoroutine(DestroyAfterAnimation());
     }

@@ -239,6 +239,7 @@ MonoBehaviour:
   health: 1
   maxHealth: 1
   damageCaused: 1
+  score: 135
   shootingRange: 4.74
   bullet: {fileID: 300432704228753690, guid: da5a95cb93adfed4593a711ac6be2924, type: 3}
   bulletParent: {fileID: 901241324233018395}
