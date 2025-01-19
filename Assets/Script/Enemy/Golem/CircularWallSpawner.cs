@@ -4,33 +4,52 @@ using UnityEngine;
 
 public class CircularWallSpawner : MonoBehaviour
 {
-    public GameObject wallPrefab; // Prefab untuk dinding berbentuk lingkaran
-    public int numberOfWalls = 20; // Jumlah dinding yang akan disusun melingkar
-    public float radius = 5f; // Jarak dari pusat ke dinding
-    public Transform centerPoint; // Pusat lingkaran (bisa posisi golem)
+    // =============================
+    // Boundary Circle Variables
+    // =============================
+    public GameObject boundaryCirclePrefab;  // Prefab untuk lingkaran batas
+    public float boundaryRadius = 5f;  // Radius lingkaran batas
+    public float radiusTriggerWall = 8f;  // Radius trigger untuk spawn dinding
+    public int numberOfWalls = 20;  // Jumlah dinding yang akan dibuat
+    private List<GameObject> boundaryWalls = new List<GameObject>();  // List untuk menyimpan dinding
+    public bool isWallActive = false;  // Menandakan apakah dinding sudah aktif
 
-    void Start()
+    // =============================
+    // Spawn Boundary Circle
+    // =============================
+    public void SpawnBoundaryCircle(Vector3 centerPosition)
     {
-        SpawnWalls();
-    }
+        if (isWallActive) return;  // Jika tembok sudah aktif, jangan spawn lagi
 
-    void SpawnWalls()
-    {
-        float angleStep = 360f / numberOfWalls; // Sudut antara setiap dinding
+        float angleStep = 360f / numberOfWalls;
         float angle = 0f;
 
         for (int i = 0; i < numberOfWalls; i++)
         {
-            // Hitung posisi dinding berdasarkan sudut
-            float wallPosX = centerPoint.position.x + Mathf.Sin(angle * Mathf.Deg2Rad) * radius;
-            float wallPosY = centerPoint.position.y + Mathf.Cos(angle * Mathf.Deg2Rad) * radius;
+            float wallPosX = centerPosition.x + Mathf.Sin((angle * Mathf.PI) / 180f) * boundaryRadius;
+            float wallPosY = centerPosition.y + Mathf.Cos((angle * Mathf.PI) / 180f) * boundaryRadius;
 
-            // Buat dinding baru di posisi yang telah dihitung
-            Vector2 wallPosition = new Vector2(wallPosX, wallPosY);
-            Instantiate(wallPrefab, wallPosition, Quaternion.identity);
+            Vector3 wallPosition = new Vector3(wallPosX, wallPosY, 0f);
+            GameObject newWall = Instantiate(boundaryCirclePrefab, wallPosition, Quaternion.identity);
 
-            // Tambah sudut untuk dinding berikutnya
-            angle += angleStep;
+            boundaryWalls.Add(newWall);  // Menambahkan wall ke dalam list
+
+            angle += angleStep;  // Menambah sudut untuk posisi dinding berikutnya
         }
+
+        isWallActive = true;  // Menandakan tembok sudah aktif
+    }
+
+    // =============================
+    // Destroy Boundary Circle
+    // =============================
+    public void DestroyBoundaryWalls()
+    {
+        foreach (GameObject wall in boundaryWalls)
+        {
+            Destroy(wall);  // Hancurkan setiap dinding
+        }
+        boundaryWalls.Clear();  // Bersihkan list setelah dinding dihancurkan
+        isWallActive = false;  // Reset status dinding
     }
 }

@@ -9,7 +9,7 @@ public class Character : MonoBehaviour
     [SerializeField] public int currentWave = 1;
     [SerializeField] private TMP_Text waveText;
     [SerializeField] private GamaManager gamaManager; // Referensi ke GameManager
-
+    [SerializeField] private GameObject[] bossPrefabs; // Daftar prefab boss
     void Start()
     {
         currentExp = 0; // Mulai dari 0 EXP
@@ -43,10 +43,14 @@ public class Character : MonoBehaviour
         Debug.Log("Wave " + currentWave + " telah dimulai!");
         UpdateWaveText();
 
-        // Cek  wave adalah kelipatan summon golem
+        // Cek  wave  kelipatan summon boss
         if (currentWave % 2 == 0)
         {
-            gamaManager.SummonGolem();
+            int bossIndex = (currentWave / 2) - 1; // Hitung index boss berdasarkan wave
+        if (bossIndex < bossPrefabs.Length) // Pastikan index tidak keluar dari batas array
+            {
+                gamaManager.SummonBoss(bossPrefabs[bossIndex]); // Summon boss dari GamaManager
+            }
         }
     }
 

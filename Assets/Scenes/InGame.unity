@@ -685,7 +685,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &268961070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -811,6 +811,7 @@ MonoBehaviour:
   expBarCanvas: {fileID: 2492169323325266063}
   golemHealthBarCanvas: {fileID: 7254933292113859793}
   healthBar: {fileID: 5369766104840091163}
+  bossNameText: {fileID: 4284332809725090821}
 --- !u!4 &310537117
 Transform:
   m_ObjectHideFlags: 0
@@ -143855,6 +143856,8 @@ MonoBehaviour:
   currentWave: 1
   waveText: {fileID: 5639328192938206424}
   gamaManager: {fileID: 310537116}
+  bossPrefabs:
+  - {fileID: 7893984747456523809, guid: b7b1ad86a5b72ba449f2648d6bc04a5b, type: 3}
 --- !u!1 &2005269312
 GameObject:
   m_ObjectHideFlags: 0
@@ -144497,7 +144500,7 @@ GameObject:
   - component: {fileID: 4103377475737739637}
   - component: {fileID: 4284332809725090821}
   m_Layer: 5
-  m_Name: Boss Name
+  m_Name: BossNameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144695,7 +144698,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "FOREST GUARDIAN\n \n"
+  m_text: "\n \n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}

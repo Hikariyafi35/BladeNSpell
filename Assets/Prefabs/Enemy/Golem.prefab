@@ -427,6 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeccbddb9752b8b459b4a51b57f8302a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossName: FOREST GUARDIAN
   moveSpeed: 2
   health: 20
   maxHealth: 20
