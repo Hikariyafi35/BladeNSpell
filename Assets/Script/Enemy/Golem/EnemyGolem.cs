@@ -38,7 +38,6 @@ public class EnemyGolem : MonoBehaviour
     private Rigidbody2D rb;  // Referensi ke Rigidbody2D untuk gerakan fisika
     public float health, maxHealth = 10f;  // Kesehatan Golem
     private bool facingLeft = true;  // Apakah Golem menghadap kiri?
-    public int damageCaused;  // Damage yang diberikan oleh Golem
     private Animator animator;  // Animator untuk animasi Golem
     public float shootingRange;  // Jarak tembakan untuk fase 1
     public GameObject bullet;  // Prefab peluru yang ditembakkan

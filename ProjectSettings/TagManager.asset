@@ -46,6 +46,9 @@ TagManager:
   - name: Ground
     uniqueID: 6177069
     locked: 0
+  - name: Warning
+    uniqueID: 1040195689
+    locked: 0
   - name: 'Npc '
     uniqueID: 2731286295
     locked: 0

@@ -8,6 +8,7 @@ public class WeaponMelee : MonoBehaviour
         EnemyMelee enemyMelee = collision.GetComponent<EnemyMelee>();
         EnemyRange enemyRange= collision.GetComponent<EnemyRange>();
         EnemyGolem enemyGolem = collision.GetComponent<EnemyGolem>();
+        FireWorm fireWorm= collision.GetComponent<FireWorm>();
         if(enemyMelee != null) {
             enemyMelee.TakeDamage(damage);
         }
@@ -16,6 +17,9 @@ public class WeaponMelee : MonoBehaviour
         }
         if (enemyGolem != null) {
             enemyGolem.TakeDamage(damage);
+        }
+        if (fireWorm != null) {
+            fireWorm.TakeDamage(damage);
         }
     }
 }
