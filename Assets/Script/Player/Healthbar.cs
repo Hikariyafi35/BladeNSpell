@@ -53,6 +53,7 @@ public class Healthbar : MonoBehaviour
                 // Ambil komponen EnemyMelee dari musuh yang bertabrakan
                 EnemyMelee enemyMelee = collision.gameObject.GetComponent<EnemyMelee>();
                 EnemyRange enemyRange = collision.gameObject.GetComponent<EnemyRange>();
+                FireWorm fireWorm = collision.gameObject.GetComponent<FireWorm>();
                 if (enemyMelee != null)
                 {
                     TakeDamage(enemyMelee.damageCaused);  // Gunakan damageCaused dari musuh
@@ -61,6 +62,11 @@ public class Healthbar : MonoBehaviour
                 if(enemyRange != null) 
                 {
                     TakeDamage(enemyRange.damageCaused);
+                    lastDamageTime = Time.time;
+                }
+                if(fireWorm != null)
+                {
+                    TakeDamage(fireWorm.damageCaused);
                     lastDamageTime = Time.time;
                 }
             }

@@ -36,20 +36,22 @@ public class Character : MonoBehaviour
 
     void LevelUp()
     {
-        maxHealth +=10;
-        currentExp = 0; //  reset EXP
-        maxExp += 100;   // Tingkatkan batas maxExp
+        maxHealth += 10;
+        currentExp = 0; // reset EXP
+        maxExp += 100;   // Increase maxExp
+
         currentWave += 1;
-        Debug.Log("Wave " + currentWave + " telah dimulai!");
+        Debug.Log("Wave " + currentWave + " started!");
+
         UpdateWaveText();
 
-        // Cek  wave  kelipatan summon boss
+        // Summon boss every 2 waves
         if (currentWave % 2 == 0)
         {
-            int bossIndex = (currentWave / 2) - 1; // Hitung index boss berdasarkan wave
-        if (bossIndex < bossPrefabs.Length) // Pastikan index tidak keluar dari batas array
+            int bossIndex = (currentWave / 2) - 1; // Calculate the index of the boss based on the wave
+            if (bossIndex < bossPrefabs.Length)
             {
-                gamaManager.SummonBoss(bossPrefabs[bossIndex]); // Summon boss dari GamaManager
+                gamaManager.SummonBoss(bossPrefabs[bossIndex]); // Summon boss from GameManager
             }
         }
     }

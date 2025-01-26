@@ -4,9 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-
-
-public class EnemyGolem : MonoBehaviour
+public class EnemyGolem : MonoBehaviour,IBoss
 {
     // =============================
     // Boss Name Management
@@ -17,18 +15,18 @@ public class EnemyGolem : MonoBehaviour
     // Inisialisasi nama boss pada UI
     public void InitializeBoss(TMP_Text bossNameUI)
     {
-        bossNameText = bossNameUI;
-        UpdateBossNameUI();
+        bossNameUI.text = bossName;
+        //UpdateBossNameUI();
     }
 
     // Update UI nama boss di layar
-    private void UpdateBossNameUI()
-    {
-        if (bossNameText != null)
-        {
-            bossNameText.text = bossName;
-        }
-    }
+    // private void UpdateBossNameUI()
+    // {
+    //     if (bossNameText != null)
+    //     {
+    //         bossNameText.text = bossName;
+    //     }
+    // }
 
     // =============================
     // Movement & Combat Variables
@@ -86,7 +84,7 @@ public class EnemyGolem : MonoBehaviour
 
         // Menemukan UI untuk nama Boss dan memperbarui tampilan
         bossNameText = GameObject.Find("BossNameText").GetComponent<TMP_Text>();
-        UpdateBossNameUI();
+        //UpdateBossNameUI();
     }
 
     // =============================
@@ -275,5 +273,14 @@ public class EnemyGolem : MonoBehaviour
 
         // Aktifkan kembali exp bar dan matikan health bar saat golem mati
         gameManager.OnBossDeath();
+    }
+    public float GetCurrentHealth()
+    {
+        return health;
+    }
+
+    public float GetMaxHealth()
+    {
+        return maxHealth;
     }
 }

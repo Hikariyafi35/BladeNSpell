@@ -5,10 +5,11 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
-public class FireWorm : MonoBehaviour
+public class FireWorm : MonoBehaviour,IBoss
 {
     public string bossName;
     private TMP_Text bossNameText;
+    private GamaManager gameManager;  // Referensi ke GameManager
 
     public float moveSpeed = 2f;
     public float health, maxHealth = 10f;
@@ -24,6 +25,7 @@ public class FireWorm : MonoBehaviour
     public float rangeAttackRadius = 8f;
 
     // Attack Settings
+    public int damageCaused;
     public float chargeSpeed = 10f;
     public float chargeDelay = 1f;
     public GameObject projectilePrefab;
@@ -40,18 +42,20 @@ public class FireWorm : MonoBehaviour
 
     public void InitializeBoss(TMP_Text bossNameUI)
     {
-        bossNameText = bossNameUI;
-        UpdateBossNameUI();
+        bossNameUI.text = bossName;
+        //UpdateBossNameUI();
     }
 
-    private void UpdateBossNameUI()
-    {
-        if (bossNameText != null)
-        {
-            bossNameText.text = bossName;
-        }
+    // private void UpdateBossNameUI()
+    // {
+    //     if (bossNameText != null)
+    //     {
+    //         bossNameText.text = bossName;
+    //     }
+    // }
+    private void Awake() {
+        gameManager = FindObjectOfType<GamaManager>();
     }
-
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -211,6 +215,7 @@ public class FireWorm : MonoBehaviour
         moveSpeed = 0;
         GetComponent<Collider2D>().enabled = false;
         Destroy(gameObject);
+        gameManager.OnBossDeath();
     }
 
     private void OnDrawGizmosSelected()
@@ -223,6 +228,15 @@ public class FireWorm : MonoBehaviour
 
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, rangeAttackRadius);
+    }
+    public float GetCurrentHealth()
+    {
+        return health;
+    }
+
+    public float GetMaxHealth()
+    {
+        return maxHealth;
     }
 }
 

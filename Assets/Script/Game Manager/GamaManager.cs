@@ -15,7 +15,7 @@ public class GamaManager : MonoBehaviour
     public Image healthBar;  // Referensi untuk Health Bar UI
 
     private GameObject currentGolem; // Referensi ke golem yang disummon
-    private EnemyGolem currentGolemScript; // Referensi ke script EnemyGolem untuk mengakses health
+    private IBoss currentGolemScript; // Referensi ke script EnemyGolem untuk mengakses health
     public TMP_Text bossNameText; // Referensi ke UI nama boss (drag dari Canvas di Inspector)
 
 
@@ -37,23 +37,43 @@ public class GamaManager : MonoBehaviour
     // summon golem di posisi GameManager
     public void SummonBoss(GameObject bossPrefab)
     {
-    if (currentGolem == null) // Cek jika tidak ada boss lain yang aktif
-    {
-        currentGolem = Instantiate(bossPrefab, transform.position, Quaternion.identity); // Spawn boss di posisi GameManager
-        currentGolemScript = currentGolem.GetComponent<EnemyGolem>(); // Simpan referensi ke script EnemyGolem
-
-        // Hubungkan UI nama boss ke EnemyGolem
-        if (currentGolemScript != null && bossNameText != null)
+        if (currentGolem == null) // Cek jika tidak ada boss lain yang aktif
         {
-            currentGolemScript.InitializeBoss(bossNameText);
+            if (bossPrefab != null) // Cek jika prefab boss valid
+            {
+                currentGolem = Instantiate(bossPrefab, transform.position, Quaternion.identity); // Spawn boss di posisi GameManager
+
+                // Cek apakah boss yang disummon mengimplementasikan IBoss
+                IBoss bossScript = currentGolem.GetComponent<IBoss>();
+                if (bossScript != null)
+                {
+                    bossScript.InitializeBoss(bossNameText); // Inisialisasi boss dengan nama UI
+                    currentGolemScript = bossScript;  // Gunakan IBoss secara langsung
+                }
+
+                Debug.Log("Boss summoned: " + currentGolem.name);
+
+                // Tampilkan HP bar boss, sembunyikan EXP bar
+                ToggleExpBar(false);
+            }
+            else
+            {
+                Debug.LogError("Boss prefab is null!");
+            }
         }
-
-        Debug.Log("Boss summoned: " + currentGolemScript.bossName);
-
-        // Tampilkan HP bar boss, sembunyikan EXP bar
-        ToggleExpBar(false);
     }
-}
+
+// Update Health Bar berdasarkan HP golem atau boss lain
+    void UpdateHealthBar()
+    {
+        if (currentGolemScript != null && healthBar != null)
+        {
+            // Langsung akses metode IBoss
+            float healthPercentage = currentGolemScript.GetCurrentHealth() / currentGolemScript.GetMaxHealth();
+            healthBar.fillAmount = healthPercentage; // Update health bar fill amount
+        }
+    }
+
 
     // Fungsi untuk toggle antara EXP Bar dan Golem Health Bar
     public void ToggleExpBar(bool expBarActive)
@@ -70,14 +90,5 @@ public class GamaManager : MonoBehaviour
         currentGolemScript = null; // Reset referensi ke script golem
         ToggleExpBar(true); // Aktifkan kembali EXP Bar
     }
-
-    // Update Health Bar berdasarkan HP golem
-    void UpdateHealthBar()
-    {
-        if (currentGolemScript != null && healthBar != null)
-        {
-            float healthPercentage = currentGolemScript.health / currentGolemScript.maxHealth;
-            healthBar.fillAmount = healthPercentage; // Update health bar fill amount
-        }
-    }
 }
+    // Update Health Bar berdasarkan HP golem
