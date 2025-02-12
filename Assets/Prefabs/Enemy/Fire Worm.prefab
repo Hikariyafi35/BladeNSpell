@@ -180,6 +180,7 @@ MonoBehaviour:
   rangeAttackCooldown: 2
   meleeDamage: 2
   meleeAttackCooldown: 1
+  animator: {fileID: 1977432751348628589}
 --- !u!95 &1977432751348628589
 Animator:
   serializedVersion: 5

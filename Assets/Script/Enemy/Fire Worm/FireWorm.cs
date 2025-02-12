@@ -39,7 +39,7 @@ public class FireWorm : MonoBehaviour,IBoss
     public int meleeDamage = 2; // Damage untuk melee attack
     public float meleeAttackCooldown = 1f; // Cooldown untuk melee attack
     private bool canMeleeAttack = true;
-
+    public Animator animator;
     public void InitializeBoss(TMP_Text bossNameUI)
     {
         bossNameUI.text = bossName;
@@ -107,17 +107,21 @@ public class FireWorm : MonoBehaviour,IBoss
 
         if (distanceToPlayer <= meleeAttackRadius && canMeleeAttack)
         {
+            animator.SetTrigger("MeleeAttack");  // Memicu animasi melee attack
             StartCoroutine(MeleeAttack());
         }
         else if (distanceToPlayer <= chargeAttackRadius && !isCharging)
         {
+            animator.SetTrigger("ChargeAttack");  // Bisa menambahkan animasi untuk charge attack, jika ada
             StartCoroutine(ChargeAttack());
         }
         else if (distanceToPlayer <= rangeAttackRadius && canShoot)
         {
+            animator.SetTrigger("RangeAttack");  // Memicu animasi range attack
             StartCoroutine(RangeAttack());
         }
     }
+
 
     private IEnumerator MeleeAttack()
     {
@@ -202,6 +206,8 @@ public class FireWorm : MonoBehaviour,IBoss
     public void TakeDamage(float damage)
     {
         health -= damage;
+        animator.SetTrigger("Hurt");  // Memicu animasi saat FireWorm menerima damage
+
         if (health <= 0)
         {
             Die();
@@ -211,10 +217,12 @@ public class FireWorm : MonoBehaviour,IBoss
     public void Die()
     {
         Debug.Log("Enemy Died");
+        animator.SetTrigger("Die");  // Memicu animasi kematian
+
         rb.velocity = Vector2.zero;
         moveSpeed = 0;
         GetComponent<Collider2D>().enabled = false;
-        Destroy(gameObject);
+        Destroy(gameObject, 2f);  // Hancurkan objek setelah animasi selesai
         gameManager.OnBossDeath();
     }
 
