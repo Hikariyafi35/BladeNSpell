@@ -20,6 +20,7 @@ public class ScoreManager : MonoBehaviour
     public void AddScore(int score){
         totalScore+= score;
         UpdatescoreUI();
+        SaveCurrentScore();
     }
     void UpdatescoreUI(){
         if(scoreText!= null){

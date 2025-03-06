@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SubmitScoree.unity
     guid: a187e5730350fd342a5b3d12b719c600
+  - enabled: 1
+    path: Assets/Scenes/ClaimScore.unity
+    guid: d80402b8c38819f4f928baeea808a138
+  - enabled: 1
+    path: Assets/Scenes/Leaderboard.unity
+    guid: ca8429df1d4ae8a468114752b1a76a60
   m_configObjects: {}
