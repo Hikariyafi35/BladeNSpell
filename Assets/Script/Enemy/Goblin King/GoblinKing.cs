@@ -7,6 +7,7 @@ using UnityEngine;
 public class GoblinKing : MonoBehaviour,IBoss
 {
     // Variabel yang sudah ada di script kamu
+    public int damageCaused;
     public string bossName;
     private TMP_Text bossNameText;
     private GamaManager gameManager;

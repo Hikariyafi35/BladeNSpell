@@ -6,6 +6,7 @@ public class Healthbar : MonoBehaviour
 {
     public Character character;
     public Image healthBar;
+    public Image shieldBar;
     public Canvas gameOverCanvas;
     public float damageInterval = 1f; // Interval waktu untuk pengurangan health
     private float lastDamageTime; // Waktu saat terakhir health berkurang
@@ -15,6 +16,8 @@ public class Healthbar : MonoBehaviour
         // Set initial health
         character.currentHealth = character.maxHealth;
         UpdateHealthBar();
+        UpdateShieldBar();
+        shieldBar.fillAmount = 0;
         if(gameOverCanvas != null){
             gameOverCanvas.gameObject.SetActive(false);
         }
@@ -31,11 +34,11 @@ public class Healthbar : MonoBehaviour
             EnemyRange enemyRange = collision.gameObject.GetComponent<EnemyRange>();
             if (enemyMelee != null)
             {
-                TakeDamage(enemyMelee.damageCaused);  // Gunakan damageCaused dari musuh
+                HandleDamage(enemyMelee.damageCaused);  // Gunakan damageCaused dari musuh
                 lastDamageTime = Time.time; // Catat waktu ketika pertama kali terkena damage
             }
             if(enemyRange != null){
-                TakeDamage(enemyRange.damageCaused);
+                HandleDamage(enemyRange.damageCaused);
                 lastDamageTime = Time.time;
             }
         }
@@ -54,19 +57,25 @@ public class Healthbar : MonoBehaviour
                 EnemyMelee enemyMelee = collision.gameObject.GetComponent<EnemyMelee>();
                 EnemyRange enemyRange = collision.gameObject.GetComponent<EnemyRange>();
                 FireWorm fireWorm = collision.gameObject.GetComponent<FireWorm>();
+                GoblinKing goblinKing = collision.gameObject.GetComponent<GoblinKing>();
                 if (enemyMelee != null)
                 {
-                    TakeDamage(enemyMelee.damageCaused);  // Gunakan damageCaused dari musuh
+                    HandleDamage(enemyMelee.damageCaused);  // Gunakan damageCaused dari musuh
                     lastDamageTime = Time.time; // Reset waktu terakhir terkena damage
                 }
                 if(enemyRange != null) 
                 {
-                    TakeDamage(enemyRange.damageCaused);
+                    HandleDamage(enemyRange.damageCaused);
                     lastDamageTime = Time.time;
                 }
                 if(fireWorm != null)
                 {
-                    TakeDamage(fireWorm.damageCaused);
+                    HandleDamage(fireWorm.damageCaused);
+                    lastDamageTime = Time.time;
+                }
+                if(goblinKing != null)
+                {
+                    HandleDamage(goblinKing.damageCaused);
                     lastDamageTime = Time.time;
                 }
             }
@@ -74,6 +83,24 @@ public class Healthbar : MonoBehaviour
     }
 
     // Function to handle damage
+    void HandleDamage(int damage)
+    {
+        if (character.currentShield > 0)
+        {
+            // Jika shield aktif, kurangi shield terlebih dahulu
+            int shieldDamage = Mathf.Min(damage, character.currentShield); // Kurangi shield sebanyak mungkin, sisanya ke health
+            character.ReduceShield(shieldDamage);
+            damage -= shieldDamage; // Sisa damage setelah mengurangi shield
+
+            Debug.Log("Shield absorbed damage: " + shieldDamage);
+        }
+
+        if (damage > 0)
+        {
+            // Jika masih ada damage yang tersisa, kurangi health
+            TakeDamage(damage);
+        }
+    }
     public void TakeDamage(int damage)
     {
         character.currentHealth -= damage;
@@ -86,6 +113,7 @@ public class Healthbar : MonoBehaviour
         }
 
         UpdateHealthBar();
+        UpdateShieldBar();
         Debug.Log("Current Health: " + character.currentHealth);
     }
     public void AddHealth(int healthAmount){
@@ -101,6 +129,12 @@ public class Healthbar : MonoBehaviour
     {
         float fillAmount = (float)character.currentHealth / character.maxHealth;
         healthBar.fillAmount = fillAmount;
+    }
+    public void UpdateShieldBar()
+    {
+        // Perbarui shield bar berdasarkan nilai currentShield dari karakter
+        float shieldFillAmount = (float)character.currentShield / character.maxShield;
+        shieldBar.fillAmount = shieldFillAmount;
     }
 
     

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4633257244761339522}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: aim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 8910917598687414151}
   - component: {fileID: 9217622242897841776}
   - component: {fileID: 8157511706279250547}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1563681001
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 1336437006, guid: 5dc60eb1bb8c42e449c7b753f412b46e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -25,13 +25,28 @@ public class EnemyBullet : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            // Ambil komponen Healthbar dari Player
+            // Ambil komponen Healthbar dan Character dari Player
             Healthbar healthbar = collision.GetComponent<Healthbar>();
+            Character character = collision.GetComponent<Character>(); // Mendapatkan komponen Character
 
-            if (healthbar != null)
+            if (healthbar != null && character != null)
             {
-                // Player menerima damage melalui Healthbar.cs
-                healthbar.TakeDamage(bulletDamage);
+                // Mengecek apakah shield masih aktif
+                if (character.currentShield > 0)
+                {
+                    // Jika shield aktif, kurangi shield terlebih dahulu
+                    int shieldDamage = Mathf.Min(bulletDamage, character.currentShield); // Kurangi shield sebanyak mungkin
+                    character.ReduceShield(shieldDamage); // Mengurangi shield
+                    bulletDamage -= shieldDamage; // Kurangi damage yang masih tersisa setelah mengurangi shield
+                    Debug.Log("Shield absorbed damage: " + shieldDamage);
+                }
+
+                // Setelah shield habis, atau jika shield habis, baru health yang berkurang
+                if (bulletDamage > 0)
+                {
+                    healthbar.TakeDamage(bulletDamage); // Mengurangi health setelah shield habis
+                    Debug.Log("Health reduced by: " + bulletDamage);
+                }
             }
 
             // Hancurkan peluru setelah mengenai player

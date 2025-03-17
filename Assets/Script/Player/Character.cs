@@ -10,6 +10,9 @@ public class Character : MonoBehaviour
     [SerializeField] private TMP_Text waveText;
     [SerializeField] private GamaManager gamaManager; // Referensi ke GameManager
     [SerializeField] private GameObject[] bossPrefabs; // Daftar prefab boss
+    public int currentShield = 0;
+    public int maxShield = 10;
+    public Healthbar healthbar;
     void Start()
     {
         currentExp = 0; // Mulai dari 0 EXP
@@ -58,5 +61,30 @@ public class Character : MonoBehaviour
 
     void UpdateWaveText(){
         waveText.text = currentWave.ToString();
+    }
+
+    public void AddShield(int shieldAmount)
+    {
+        currentShield += shieldAmount;
+        if (currentShield > maxShield)
+            {
+                currentShield = maxShield; // Pastikan shield tidak lebih dari maxShield
+            }
+        Debug.Log("Shield Activated: " + currentShield);
+        // Pastikan Healthbar sudah terhubung, dan perbarui shield UI
+        if (healthbar != null)
+        {
+            healthbar.UpdateShieldBar();  // Memperbarui UI shield bar
+        }
+    }
+
+    public void ReduceShield(int amount)
+    {
+        currentShield -= amount;
+        if (currentShield < 0)
+        {
+            currentShield = 0; // Jangan biarkan shield menjadi negatif
+        }
+        Debug.Log("Shield Remaining: " + currentShield);
     }
 }

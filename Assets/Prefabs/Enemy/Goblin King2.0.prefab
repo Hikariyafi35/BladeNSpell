@@ -315,6 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f43c1c2c48e6e42b6ebb8c2c63556d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageCaused: 0
   bossName: Goblin King
   moveSpeed: 2
   health: 10
