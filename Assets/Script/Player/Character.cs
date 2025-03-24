@@ -10,6 +10,7 @@ public class Character : MonoBehaviour
     [SerializeField] private TMP_Text waveText;
     [SerializeField] private GamaManager gamaManager; // Referensi ke GameManager
     [SerializeField] private GameObject[] bossPrefabs; // Daftar prefab boss
+    [SerializeField] private EnemySpawner enemySpawner;
     public int currentShield = 0;
     public int maxShield = 10;
     public Healthbar healthbar;
@@ -45,9 +46,8 @@ public class Character : MonoBehaviour
 
         currentWave += 1;
         Debug.Log("Wave " + currentWave + " started!");
-
         UpdateWaveText();
-
+        enemySpawner.SetWave(currentWave);
         // Summon boss every 2 waves
         if (currentWave % 2 == 0)
         {
