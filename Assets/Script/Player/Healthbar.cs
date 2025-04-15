@@ -58,6 +58,7 @@ public class Healthbar : MonoBehaviour
                 EnemyRange enemyRange = collision.gameObject.GetComponent<EnemyRange>();
                 FireWorm fireWorm = collision.gameObject.GetComponent<FireWorm>();
                 GoblinKing goblinKing = collision.gameObject.GetComponent<GoblinKing>();
+                KingSlime kingSlime = collision.gameObject.GetComponent<KingSlime>();
                 if (enemyMelee != null)
                 {
                     HandleDamage(enemyMelee.damageCaused);  // Gunakan damageCaused dari musuh
@@ -76,6 +77,11 @@ public class Healthbar : MonoBehaviour
                 if(goblinKing != null)
                 {
                     HandleDamage(goblinKing.damageCaused);
+                    lastDamageTime = Time.time;
+                }
+                if(kingSlime != null)
+                {
+                    HandleDamage(kingSlime.damageCaused);
                     lastDamageTime = Time.time;
                 }
             }

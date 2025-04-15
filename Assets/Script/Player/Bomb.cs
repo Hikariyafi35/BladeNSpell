@@ -1,16 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Bomb : MonoBehaviour
 {
     public LayerMask enemyLayer;  // Layer khusus untuk musuh biasa
+     public Image cooldownImage;   // Reference to the Image component
+    public float cooldownTime = 5f; // Total cooldown time (in seconds)
+    private float currentCooldownTime = 0f; // Current cooldown time remaining
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F)) // Ketika tombol F ditekan
+        // If cooldown is still active, update the cooldown timer
+        if (currentCooldownTime > 0)
         {
-            ActivateUlt();
+            currentCooldownTime -= Time.deltaTime;
+
+            // Update the radial fill amount based on the remaining cooldown time
+            cooldownImage.fillAmount = 1 - (currentCooldownTime / cooldownTime);
+        }
+        else
+        {
+            // If cooldown is over, set the fill amount to 1 (ready to use)
+            cooldownImage.fillAmount = 1f;
+
+            // If F key is pressed and the cooldown is over, activate the ultimate ability
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                ActivateUlt();
+                currentCooldownTime = cooldownTime; // Reset the cooldown
+            }
         }
     }
 

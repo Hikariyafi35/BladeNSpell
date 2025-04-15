@@ -10,6 +10,7 @@ public class WeaponMelee : MonoBehaviour
         EnemyGolem enemyGolem = collision.GetComponent<EnemyGolem>();
         FireWorm fireWorm= collision.GetComponent<FireWorm>();
         GoblinKing goblinKing= collision.GetComponent<GoblinKing>();
+        KingSlime kingSlime = collision.GetComponent<KingSlime>();
         if(enemyMelee != null) {
             enemyMelee.TakeDamage(damage);
         }
@@ -24,6 +25,9 @@ public class WeaponMelee : MonoBehaviour
         }
         if (goblinKing != null){
             goblinKing.TakeDamage(damage);
+        }
+        if (kingSlime != null){
+            kingSlime.TakeDamage(damage);
         }
     }
 }

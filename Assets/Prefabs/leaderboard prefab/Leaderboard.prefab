@@ -56,3 +56,4 @@ MonoBehaviour:
   - {fileID: 8852241600106655669, guid: e26b54796870a8545a62f8fba6703430, type: 3}
   - {fileID: 3246409755859746623, guid: 48eaf1e97b65ea043a8374d8a607117c, type: 3}
   - {fileID: 8843731824401578713, guid: 2f24e67fac7650c43b28e9e7702b513e, type: 3}
+  confirmResetCanvas: {fileID: 5739030435275749261, guid: 2d6cc6b23b6c05b408e2abf81aa384a0, type: 3}

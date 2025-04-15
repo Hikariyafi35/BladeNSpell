@@ -37,12 +37,14 @@ public class ProjectilePlayer : MonoBehaviour
         EnemyGolem enemyGolem = collision.gameObject.GetComponent<EnemyGolem>();
         FireWorm fireWorm = collision.gameObject.GetComponent<FireWorm>();
         GoblinKing goblinKing = collision.gameObject.GetComponent<GoblinKing>();
+        KingSlime kingSlime = collision.gameObject.GetComponent<KingSlime>();
 
         if (enemyMelee != null) enemyMelee.TakeDamage(damage);
         if (enemyRange != null) enemyRange.TakeDamage(damage);
         if (enemyGolem != null) enemyGolem.TakeDamage(damage);
         if (fireWorm != null) fireWorm.TakeDamage(damage);
         if (goblinKing != null) goblinKing.TakeDamage(damage);
+        if (kingSlime != null) kingSlime.TakeDamage(damage);
 
         Destroy(gameObject);
     }

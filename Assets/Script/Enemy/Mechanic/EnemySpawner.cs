@@ -21,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        // Spawner selalu mengikuti posisi player
+        // Spawner  follow player
         if (player != null)
         {
             transform.position = player.position;

@@ -11,6 +11,7 @@ public class Character : MonoBehaviour
     [SerializeField] private GamaManager gamaManager; // Referensi ke GameManager
     [SerializeField] private GameObject[] bossPrefabs; // Daftar prefab boss
     [SerializeField] private EnemySpawner enemySpawner;
+    //public LevelupManager levelupManager;  // Referensi ke LevelUpManager
     public int currentShield = 0;
     public int maxShield = 10;
     public Healthbar healthbar;
@@ -49,12 +50,21 @@ public class Character : MonoBehaviour
         UpdateWaveText();
         enemySpawner.SetWave(currentWave);
         // Summon boss every 2 waves
+        //levelupManager.ShowLevelUpCanvas();
+
         if (currentWave % 2 == 0)
         {
             int bossIndex = (currentWave / 2) - 1; // Calculate the index of the boss based on the wave
             if (bossIndex < bossPrefabs.Length)
             {
                 gamaManager.SummonBoss(bossPrefabs[bossIndex]); // Summon boss from GameManager
+            }
+            else
+            {
+                int randomIndex = Random.Range(0,bossPrefabs.Length);
+                GameObject randomBoss = bossPrefabs[randomIndex];
+                gamaManager.SummonBoss(randomBoss);
+                Debug.Log("boss random spawned");
             }
         }
     }

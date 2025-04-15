@@ -36,23 +36,14 @@ public class FireWorm : MonoBehaviour,IBoss
     private bool canShoot = true;
     private LineRenderer lineRenderer;
 
-    public int meleeDamage = 2; // Damage untuk melee attack
+    public int meleeDamage = 10; // Damage untuk melee attack
     public float meleeAttackCooldown = 1f; // Cooldown untuk melee attack
     private bool canMeleeAttack = true;
     public Animator animator;
     public void InitializeBoss(TMP_Text bossNameUI)
     {
         bossNameUI.text = bossName;
-        //UpdateBossNameUI();
     }
-
-    // private void UpdateBossNameUI()
-    // {
-    //     if (bossNameText != null)
-    //     {
-    //         bossNameText.text = bossName;
-    //     }
-    // }
     private void Awake() {
         gameManager = FindObjectOfType<GamaManager>();
     }
@@ -110,12 +101,12 @@ public class FireWorm : MonoBehaviour,IBoss
             animator.SetTrigger("MeleeAttack");  // Memicu animasi melee attack
             StartCoroutine(MeleeAttack());
         }
-        else if (distanceToPlayer <= chargeAttackRadius && !isCharging)
+        else if (distanceToPlayer <= chargeAttackRadius && !isCharging && distanceToPlayer > meleeAttackRadius)
         {
             animator.SetTrigger("ChargeAttack");  // Bisa menambahkan animasi untuk charge attack, jika ada
             StartCoroutine(ChargeAttack());
         }
-        else if (distanceToPlayer <= rangeAttackRadius && canShoot)
+        else if (distanceToPlayer <= rangeAttackRadius && canShoot && distanceToPlayer > chargeAttackRadius)
         {
             animator.SetTrigger("RangeAttack");  // Memicu animasi range attack
             StartCoroutine(RangeAttack());

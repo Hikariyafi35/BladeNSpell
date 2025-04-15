@@ -65,6 +65,22 @@ public class LeaderboardManager2 : MonoBehaviour
             scoreTexts[i].text = leaderboard[i].score.ToString();
         }
     }
+    public void ResetLeaderboard()
+    {
+        leaderboard.Clear(); // Kosongkan list leaderboard
+        PlayerPrefs.DeleteKey("Leaderboard"); // Hapus dari penyimpanan lokal
+        PlayerPrefs.Save();
+        UpdateLeaderboardUI(); // Perbarui UI agar kosong
+
+        // Kosongkan tampilan UI juga jika list masih kosong
+        for (int i = 0; i < nameTexts.Length; i++)
+        {
+            nameTexts[i].text = "-";
+            scoreTexts[i].text = "0";
+        }
+
+        Debug.Log("Leaderboard has been reset.");
+    }
 }
 
 [System.Serializable]

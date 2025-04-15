@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class BOD : MonoBehaviour
+public class BOD : MonoBehaviour,IBoss
 {
     // Variabel yang sudah ada di script kamu
     public string bossName;
@@ -111,15 +111,15 @@ public class BOD : MonoBehaviour
     }
 
     private void CheckPlayerOutOfRangeForTeleport()
-{
-    float distanceToPlayer = Vector2.Distance(player.position, transform.position);
-
-    // Memeriksa apakah pemain keluar dari radius range attack
-    if (distanceToPlayer > rangeAttackRadius && Time.time > lastTeleportTime + teleportDelay)
     {
-        TeleportToPlayer();
+        float distanceToPlayer = Vector2.Distance(player.position, transform.position);
+
+        // Memeriksa apakah pemain keluar dari radius range attack
+        if (distanceToPlayer > rangeAttackRadius && Time.time > lastTeleportTime + teleportDelay)
+        {
+            TeleportToPlayer();
+        }
     }
-}
 
     private void TeleportToPlayer()
     {
