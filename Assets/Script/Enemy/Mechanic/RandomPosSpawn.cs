@@ -5,15 +5,26 @@ using UnityEngine;
 public class RandomPosSpawn : MonoBehaviour
 {
     public GameObject enemyPrefab;  // Prefab enemy
-    public Transform player;        // Referensi ke posisi player
+    public string playerTag = "Player"; // Tag untuk mencari player
     public float spawnRadius = 10f; // Jarak di sekitar player tempat spawner akan berpindah
     public float spawnInterval = 3f; // Interval waktu untuk spawn enemy
     public float moveInterval = 5f;  // Interval waktu untuk memindahkan spawner
     public float enemyLifetime = 5f; // Waktu hidup enemy sebelum dihancurkan
     public Color gizmoColor = Color.red; // Warna gizmo untuk radius spawn
 
+    private Transform player; // Referensi ke posisi player
+
     private void Start()
     {
+        // Cari player menggunakan tag dan dapatkan komponen Transform
+        player = GameObject.FindGameObjectWithTag(playerTag)?.transform;
+
+        if (player == null)
+        {
+            Debug.LogError("Player tidak ditemukan! Pastikan objek player memiliki tag 'Player'.");
+            return;
+        }
+
         // Mulai coroutine untuk spawn musuh
         StartCoroutine(SpawnEnemy());
         // Mulai coroutine untuk memindahkan spawner
