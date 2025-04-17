@@ -303,7 +303,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1563681001
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 1863001400, guid: d4b1ddd3af4549d438172c0bf3e4c212, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -429,9 +429,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossName: FOREST GUARDIAN
   moveSpeed: 2
-  health: 20
-  maxHealth: 20
-  damageCaused: 1
+  health: 30
+  maxHealth: 30
   shootingRange: 5.91
   bullet: {fileID: 300432704228753690, guid: 29df7d4e0c41e7644b3301006c7c2d16, type: 3}
   bulletParent: {fileID: 2693503490754221636}

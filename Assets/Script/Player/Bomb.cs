@@ -9,6 +9,14 @@ public class Bomb : MonoBehaviour
      public Image cooldownImage;   // Reference to the Image component
     public float cooldownTime = 5f; // Total cooldown time (in seconds)
     private float currentCooldownTime = 0f; // Current cooldown time remaining
+    public AudioClip bombSFX;  // AudioClip untuk SFX ketika bomb diaktifkan
+    private AudioSource audioSource;  // AudioSource untuk memutar SFX
+
+    private void Start()
+    {
+        // Ambil komponen AudioSource
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -59,6 +67,11 @@ public class Bomb : MonoBehaviour
                     enemyRange.Die(); // Panggil fungsi Die() untuk menghapus musuh
                 }
             }
+        }
+        // Mainkan SFX ketika bomb diaktifkan
+        if (audioSource != null && bombSFX != null)
+        {
+            audioSource.PlayOneShot(bombSFX); // Memainkan SFX bomb saat ultinya diaktifkan
         }
     }
 }

@@ -234,8 +234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossName: Slime King
   moveSpeed: 2
-  health: 10
-  maxHealth: 10
+  health: 30
+  maxHealth: 30
   meleeAttackRadius: 3.43
   chargeAttackRadius: 6.6
   rangeAttackRadius: 10.29

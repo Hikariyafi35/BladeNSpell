@@ -315,11 +315,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f43c1c2c48e6e42b6ebb8c2c63556d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageCaused: 0
+  damageCaused: 1
   bossName: Goblin King
   moveSpeed: 2
-  health: 10
-  maxHealth: 10
+  health: 40
+  maxHealth: 40
   healAmount: 2
   projectilePrefab: {fileID: 300432704228753690, guid: 29df7d4e0c41e7644b3301006c7c2d16, type: 3}
   shootPoint: {fileID: 4474407802982360333}

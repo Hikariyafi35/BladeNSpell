@@ -12,6 +12,14 @@ public class RangeAttack : MonoBehaviour
     public Transform firePoint;
     public float bulletSpeed = 10f;
     private bool isAiming = false;
+     public AudioClip shootSFX;  // SFX untuk tembakan
+    private AudioSource audioSource;  // AudioSource untuk memainkan SFX
+
+    void Start()
+    {
+        // Ambil komponen AudioSource di objek yang sama
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -57,6 +65,11 @@ public class RangeAttack : MonoBehaviour
             Vector2 fireDirection = weaponObject.transform.right; // arah horizontal dari rotasi
 
             bullet.GetComponent<Rigidbody2D>().velocity = fireDirection * bulletSpeed;
+            // Mainkan SFX saat tembakan
+            if (audioSource != null && shootSFX != null)
+            {
+                audioSource.PlayOneShot(shootSFX);  // Memainkan SFX tembakan
+            }
         }
     }
 }

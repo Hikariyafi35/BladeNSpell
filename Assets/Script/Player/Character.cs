@@ -52,9 +52,9 @@ public class Character : MonoBehaviour
         // Summon boss every 2 waves
         //levelupManager.ShowLevelUpCanvas();
 
-        if (currentWave % 2 == 0)
+        if (currentWave % 3 == 0)
         {
-            int bossIndex = (currentWave / 2) - 1; // Calculate the index of the boss based on the wave
+            int bossIndex = (currentWave / 3) - 1; // Calculate the index of the boss based on the wave
             if (bossIndex < bossPrefabs.Length)
             {
                 gamaManager.SummonBoss(bossPrefabs[bossIndex]); // Summon boss from GameManager
